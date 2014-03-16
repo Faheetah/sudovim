@@ -3,7 +3,14 @@ require './Post'
 require './Search'
 
 get '/' do
-  @posts = Post.all
+  @posts = Post.list
+  @paginate = 0
+  erb :index
+end
+
+get '/p/:num' do
+  @paginate = params[:num].to_i
+  @posts = Post.list paginate: @paginate
   erb :index
 end
 
