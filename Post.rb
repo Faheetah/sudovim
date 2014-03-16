@@ -32,6 +32,10 @@ module Post
     return posts
   end
 
+  def self.menu
+    return @@redis.lrange 'post::list', 0, 30
+  end
+
   def self.find id
     return @@redis.hgetall id
   end
