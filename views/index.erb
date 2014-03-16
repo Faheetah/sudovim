@@ -1,7 +1,6 @@
 <% @posts.each do |post| %>
-<div>
-  <h3><a href="/<%= post["slug"] %>"><%= post["title"] %></a></h3>
-  <p><%= post["date"] %></p>
+<div class="post">
+  <h3><a href="/<%= post["slug"] %>"><%= post["title"] %></a> <span class="date"><%= post["date"] %></span></h3>
   <p>
     <% if post["content"].length > 140 %>
     <%= post["content"].slice(0,137)+"..." %>
@@ -12,9 +11,11 @@
 </div>
 <% end %>
 
+<div class="paginate">
 <% if @paginate > 9 %>
 <a href="/p/<%= @paginate-10 %>">Prev</a>
 <% end %>
 <% if @posts.length > 9 %>
 <a href="/p/<%= @paginate+10 %>">Next</a>
 <% end %>
+</div>
