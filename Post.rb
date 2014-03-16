@@ -22,10 +22,12 @@ module Post
   end
 
   def self.list paginate: 0, length: 10
-    titles = @@redis.lrange 'post::list', 0+paginate, 9+paginate
+    slugs = @@redis.lrange 'post::list', 0+paginate, 9+paginate
     posts = []
-    titles.each do |title|
-      posts.push @@redis.hgetall title
+    slugs.each do |slug|
+      post = @@redis.hgetall slug
+      post["slug"] = slug
+      posts.push post
     end
     return posts
   end
