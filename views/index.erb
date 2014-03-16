@@ -1,1 +1,18 @@
-<%= @posts %>
+<% @posts.each do |post| %>
+<h1><%= post["title"] %></h1>
+<p><%= post["date"] %></p>
+<p>
+  <% if post["content"].length > 20 %>
+  <%= post["content"].slice(0,17)+"..." %>
+  <% else %>
+  <%= post["content"] %>
+  <% end %>
+</p>
+<% end %>
+
+<% if @paginate > 9 %>
+<a href="/p/<%= @paginate-10 %>">Prev</a>
+<% end %>
+<% if @posts.length > 9 %>
+<a href="/p/<%= @paginate+10 %>">Next</a>
+<% end %>
