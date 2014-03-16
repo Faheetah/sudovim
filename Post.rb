@@ -18,7 +18,7 @@ module Post
   def self.new post
     slug = self.slugify(post[:title])
     @@redis.hmset slug, 'date', post[:date], 'title', post[:title], 'content', post[:content]
-    @@redis.rpush 'post::list', slug
+    @@redis.lpush 'post::list', slug
   end
 
   def self.list paginate: 0, length: 10

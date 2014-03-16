@@ -8,7 +8,7 @@ describe Post do
     @redis = Redis.new
     @redis.flushall
     @data = [
-      {:title => 'Title one',        :date => '1-1-13',  :content => '1 lorem ipsum stuff'},
+      {:title => 'Title one',        :date => '1-1-13',  :content => '1 lorem ipsum stuff jfdsjkfjk jkd kjskjf kjf djklsld jklfdsjl lj'},
       {:title => 'Title two',        :date => '2-1-13',  :content => '2 loem ipsum stuff'},
       {:title => 'Title three',      :date => '3-1-13',  :content => '3 lrem ipsum stuff'},
       {:title => 'Title four',       :date => '4-1-13',  :content => '4 lorm ipsum stuff'},
@@ -28,13 +28,10 @@ describe Post do
       {:title => 'Eighteen title',   :date => '11-1-13', :content => '18 lorem ipsumstuff'},
       {:title => 'Nineteen title',   :date => '11-1-13', :content => '19 lorem ipsum ff'},
       {:title => 'Twenty title',     :date => '12-1-13', :content => '20 lorem ipsum suff'},
-      {:title => 'Twenty One title', :date => '12-1-13', :content => '21 lorem ipsum suff'}
+      {:title => 'Twenty One title', :date => '12-1-13', :content => '21 lorem ipsum suff kjfd kjfd jkfd jkfd jkfd jkdf kj fkj kjdf kj'}
     ]
     @slug = 'title-one'
-  end
-
-  after :all do
-    @redis.flushall
+    @postslist = 'post::list'
   end
 
 
@@ -58,8 +55,9 @@ describe Post do
 
     it 'creates twenty entries' do
       @data.each do |entry|
-        expect(Post.new entry).to eq true
+        expect(Post.new entry).to be >= 1
       end
+      expect(@redis.llen @postslist).to be == 21
     end
 
   end
@@ -72,11 +70,34 @@ describe Post do
     end
 
     it 'has the first entry date as 1-1-13' do
-      expect(Post.list[0][:date]).to eq '1-1-13'
+      expect(Post.list[0]['date']).to eq @data[@data.length-1][:date]
     end
 
     it 'has the last entry title as "Title ten"' do
-      expect(Post.list[9][:title]).to eq 'Title ten'
+      expect(Post.list[9]['title']).to eq @data[@data.length-10][:title]
+    end
+
+    it 'paginates' do
+      expect(Post.list(paginate: 10).length).to eq 10
+    end
+
+    it 'paginates correctly' do
+      expect(Post.list(paginate: 10)[0]['date']).to eq @data[@data.length-11][:date]
+      expect(Post.list(paginate: 10)[0]['title']).to eq @data[@data.length-11][:title]
+      expect(Post.list(paginate: 20)[0]['title']).to eq @data[@data.length-21][:title]
+    end
+
+  end
+
+  describe '#find' do
+
+    it 'gets the values for a single post' do
+      data = @data[15]
+      slug = Post.slugify data[:title]
+      post = Post.find slug.chop
+      expect(post['title']).to eq data[:title]
+      expect(post['content']).to eq data[:content]
+      expect(post['date']).to eq data[:date]
     end
 
   end
