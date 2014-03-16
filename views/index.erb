@@ -1,13 +1,15 @@
 <% @posts.each do |post| %>
-<h1><%= post["title"] %></h1>
-<p><%= post["date"] %></p>
-<p>
-  <% if post["content"].length > 20 %>
-  <%= post["content"].slice(0,17)+"..." %>
-  <% else %>
-  <%= post["content"] %>
-  <% end %>
-</p>
+<div>
+  <h3><%= post["title"] %></h3>
+  <p><%= post["date"] %></p>
+  <p>
+    <% if post["content"].length > 20 %>
+    <%= post["content"].slice(0,17)+"..." %>
+    <% else %>
+    <%= post["content"] %>
+    <% end %>
+  </p>
+</div>
 <% end %>
 
 <% if @paginate > 9 %>
