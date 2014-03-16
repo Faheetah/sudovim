@@ -1,3 +1,64 @@
 body {
   font-family: Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: #1155DD;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 36pt;
+  margin: 10px;
+}
+
+.grid {
+  margin: 0 0 20 0;
+  max-width: 1024px;
+  margin: auto;
+}
+
+
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.head {
+  background-color: #111111;
+  border-bottom: 16px solid #333333;
+  color: #FFFFFF
+}
+
+.head .grid .logo {
+  float: left;
+  width: 60%;
+}
+
+.head .grid .search {
+  float: left;
+  padding-top: 20px;
+  width: 40%;
+}
+
+.body .content {
+  //float: left;
+  //width: 75%;
+}
+
+.body .menu {
+  float: right;
+  width: 25%;
+  background-color: #DDDDDD;
+}
+
+.menu h3 {
+  padding-left: 20px;
 }
