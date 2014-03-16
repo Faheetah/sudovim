@@ -8,6 +8,7 @@ module Post
   # Paginate based on offset
 
   #Grab by ID
+  #test
   def self.find id
     id
   end
