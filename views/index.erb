@@ -3,8 +3,8 @@
   <h3><a href="/<%= post["slug"] %>"><%= post["title"] %></a></h3>
   <p><%= post["date"] %></p>
   <p>
-    <% if post["content"].length > 20 %>
-    <%= post["content"].slice(0,17)+"..." %>
+    <% if post["content"].length > 140 %>
+    <%= post["content"].slice(0,137)+"..." %>
     <% else %>
     <%= post["content"] %>
     <% end %>
