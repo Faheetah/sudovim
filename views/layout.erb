@@ -2,26 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>SudoVim</title>
-    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="stylesheet" type="text/css" media="all" href="main.css" />
   </head>
   <body>
-    <div class="head">
-      <div class="grid">
+
+    <div class="wrapper">
+      <div class="header">
         <div class="logo">
-          <h1><a href="/">SudoVim</a></h1>
+          <a href="/">SudoVim</a>
         </div>
+
         <div class="search">
-          <label>Search</label>
-          <input type="text">
+          <label>Search</label> <input type="text">
         </div>
       </div>
-    </div>
-    <div class="grid body">
+
       <div class="content">
         <%= yield %>
       </div>
     </div>
+
   </body>
 </html>
