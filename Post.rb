@@ -1,3 +1,5 @@
+require 'redis'
+
 module Post
 
   @@redis = Redis.new
