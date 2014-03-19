@@ -39,6 +39,11 @@ body, html {
   align-items: center;
 }
 
+.search label {
+  margin-right: 10px;
+  font-size: 18pt;
+}
+
 .content {
   -moz-box-flex: 1;
   padding: 20px;
@@ -63,6 +68,8 @@ input {
 .date {
   font-size: 12pt;
   color: #999999;
+  margin-left: 10px;
+  float: right;
 }
 
 .post p {
