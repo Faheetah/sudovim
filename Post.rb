@@ -7,7 +7,6 @@ module Post
     if @@redis.hexists(slug, 'title') == false
       return slug
     else
-      # This will later need to implement a much better duplicates handling
       self.slugify(title+'1')
     end
 
