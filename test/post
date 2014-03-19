@@ -9,30 +9,6 @@ describe Post do
     @redis = Redis.new
     @redis.flushall
     @data = Sample.load
-
-#    @data = [
-#      {:title => 'Title one',        :date => '1-1-13',  :content => '1 lorem ipsum stuff jfdsjkfjk jkd kjskjf kjf djklsld jklfdsjl lj'},
-#      {:title => 'Title two',        :date => '2-1-13',  :content => '2 loem ipsum stuff'},
-#      {:title => 'Title three',      :date => '3-1-13',  :content => '3 lrem ipsum stuff'},
-#      {:title => 'Title four',       :date => '4-1-13',  :content => '4 lorm ipsum stuff'},
-#      {:title => 'Title five',       :date => '5-1-13',  :content => '5 lorem ipsum stuff'},
-#      {:title => 'Title six',        :date => '5-1-13',  :content => '6 lore ipsum stuff'},
-#      {:title => 'Title seven',      :date => '6-1-13',  :content => '7 lorem ipsum stuff'},
-#      {:title => 'Title eight',      :date => '7-1-13',  :content => '8 lorem ipsum stuff'},
-#      {:title => 'Title nine',       :date => '8-1-13',  :content => '9 lorempsum stuff'},
-#      {:title => 'Title ten',        :date => '9-1-13',  :content => '10 lorem psum stuff'},
-#      {:title => 'Title eleven',     :date => '9-1-13',  :content => '11 lorem isum stuff'},
-#      {:title => 'Title twelve',     :date => '10-1-13', :content => '12 loremipum stuff'},
-#      {:title => 'Title thirteen',   :date => '10-1-13', :content => '13 lorem ps stuff'},
-#      {:title => 'Title fourteen',   :date => '10-1-13', :content => '14 lorem isum stuff'},
-#      {:title => 'Fifteen title',    :date => '10-1-13', :content => '15 lorem ipumstuff'},
-#      {:title => 'Sixteen title',    :date => '10-1-13', :content => '16 lorem ipsm tuff'},
-#      {:title => 'Seventeen title',  :date => '11-1-13', :content => '17 lorem ipsum suff'},
-#      {:title => 'Eighteen title',   :date => '11-1-13', :content => '18 lorem ipsumstuff'},
-#      {:title => 'Nineteen title',   :date => '11-1-13', :content => '19 lorem ipsum ff'},
-#      {:title => 'Twenty title',     :date => '12-1-13', :content => '20 lorem ipsum suff'},
-#      {:title => 'Twenty One title', :date => '12-1-13', :content => '21 lorem ipsum suff kjfd kjfd jkfd jkfd jkfd jkdf kj fkj kjdf kj'}
-#    ]
     @slug = 'first-post'
     @postslist = 'post::list'
   end
