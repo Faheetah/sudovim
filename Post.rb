@@ -1,5 +1,3 @@
-require 'redis'
-
 module Post
 
   @@redis = Redis.new
@@ -30,10 +28,6 @@ module Post
       posts.push post
     end
     return posts
-  end
-
-  def self.menu
-    return @@redis.lrange 'post::list', 0, 30
   end
 
   def self.find id
