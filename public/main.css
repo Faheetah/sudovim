@@ -54,6 +54,12 @@ a:hover {
   text-decoration: underline;
 }
 
+input {
+  width: 350px;
+  color: #000000;
+  padding: 3px;
+}
+
 .date {
   font-size: 12pt;
   color: #999999;
