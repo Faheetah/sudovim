@@ -2,7 +2,7 @@ require 'redis'
 
 module Post
 
-  @@redis = Redis.new
+  @@redis=Redis.new
 
   def self.slugify title
     slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
