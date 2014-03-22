@@ -16,4 +16,7 @@ module Tag
     return @@sequel[:tags].select(:tag, :link).distinct.all
   end
 
+  def self.find id
+    return @@sequel[:tags].where(:posts_id => id).all
+  end
 end
