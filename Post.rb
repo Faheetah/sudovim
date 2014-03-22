@@ -9,12 +9,15 @@ module Post
   end
 
   def self.striptags tags
-
+    return tags.downcase.strip.gsub(/[^a-z0-9+,.\-\#\s]+/i,'')
   end
 
   def self.new title: nil, content: nil, tags: nil, date: DateTime.now
     if title and content
       slug = self.slugify(title)
+      if tags
+        tags = self.striptags(tags)
+      end
       return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :tags => tags, :date => date
     end
   end

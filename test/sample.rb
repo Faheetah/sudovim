@@ -125,13 +125,13 @@ module Sample
         :title => "Almost finished",
         :date => "1-21-14",
         :content => "Ruby is said to follow the principle of least astonishment (POLA), meaning that the language should behave in such a way as to minimize confusion for experienced users. Matsumoto has said his primary design goal was to make a language which he himself enjoyed using, by minimizing programmer work and possible confusion. He has said that he had not applied the principle of least surprise to the design of Ruby,[34] but nevertheless the phrase has come to be closely associated with the Ruby programming language. The phrase has itself been a source of surprise, as novice users may take it to mean that Ruby's behaviors try to closely match behaviors familiar from other languages. In a May 2005 discussion on the newsgroup comp.lang.ruby, Matsumoto attempted to distance Ruby from POLA, explaining that because any design choice will be surprising to someone, he uses a personal standard in evaluating surprise. If that personal standard remains consistent, there would be few surprises for those familiar with the standard.[35]",
-        :tags => "gaming,ruby"
+        :tags => "TRYING to br34k TEH TAGS *($)@$&*#@&%*()@&#*(%)@&#*(%(*RYEWFUFHUN_#CN*(@N(_849923879537"
       },
       {
         :title => "Last Post?",
         :date => "1-22-14",
         :content => " Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only. The principle of least surprise means principle of least my surprise. And it means the principle of least surprise after you learn Ruby very well. For example, I was a C++ programmer before I started designing Ruby. I programmed in C++ exclusively for two or three years. And after two years of C++ programming, it still surprises me.  ",
-        :tags => "gaming,hardware"
+        :tags => "abcdefghijklmnopqrstuvwxyz,0123456789, # - + . "
       }
     ]
   end
