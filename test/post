@@ -4,7 +4,7 @@ require './Post'
 require './test/sample'
 require 'sequel'
 
-DB = Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost').run "DELETE FROM posts"
+Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost').run "DELETE FROM posts"
 
 describe Post do
   before :all do
