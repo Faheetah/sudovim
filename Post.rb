@@ -1,5 +1,3 @@
-require 'sequel'
-
 module Post
 
   @@sequel = Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost')

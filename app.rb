@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sequel'
 require './Post'
 require './Search'
 
