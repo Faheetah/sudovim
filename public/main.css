@@ -50,6 +50,11 @@ body, html {
   background-color: #FFFFFF;
 }
 
+.menu {
+  float:right;
+  padding: 40px;
+}
+
 a {
   color: #1155DD;
   text-decoration: none;
