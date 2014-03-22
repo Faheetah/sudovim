@@ -8,7 +8,7 @@ module Post
     slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
-  def self.new title: nil, content: nil, tags: '', date: DateTime.now
+  def self.new title: nil, content: nil, tags: nil, date: DateTime.now
     if title and content
       slug = self.slugify(title)
       return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :tags => tags, :date => date
