@@ -31,11 +31,11 @@ describe Post do
     end
 
     it 'matches the first entry title' do
-      expect(Post.all[0][:title]).to eq @data[0][:title]
+      expect(Post.all[0][:title]).to eq @data.reverse[0][:title]
     end
 
     it 'matches the last entry title' do
-      expect(Post.all[9][:title]).to eq @data[9][:title]
+      expect(Post.all[9][:title]).to eq @data.reverse[9][:title]
     end
 
     it 'paginates' do
@@ -43,8 +43,8 @@ describe Post do
     end
 
     it 'paginates correctly' do
-      expect(Post.all(paginate: 10)[0][:title]).to eq @data[10][:title]
-      expect(Post.all(paginate: 20)[0][:title]).to eq @data[20][:title]
+      expect(Post.all(paginate: 10)[0][:title]).to eq @data.reverse[10][:title]
+      expect(Post.all(paginate: 20)[0][:title]).to eq @data.reverse[20][:title]
     end
 
   end
