@@ -19,6 +19,11 @@ get '/search' do
   erb :search
 end
 
+get '/tag/*' do
+  @search = Search.tags params[:splat].first.split '/'
+  erb :search
+end
+
 get '/:id*' do
   @post = Post.find(params[:id])[0]
   erb :post
