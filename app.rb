@@ -8,7 +8,7 @@ before '/*' do
 end
 
 get '/' do
-  @posts = Post.list paginate: @paginate
+  @posts = Post.all paginate: @paginate
   erb :index
 end
 
@@ -17,7 +17,7 @@ get '/search' do
   erb :search
 end
 
-get '/:id' do
-  @post = Post.find params[:id]
+get '/:id*' do
+  @post = Post.find(params[:id])[0]
   erb :post
 end

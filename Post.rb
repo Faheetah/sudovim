@@ -1,38 +1,33 @@
-require 'redis'
+require 'sequel'
 
 module Post
 
-  @@redis=Redis.new
+  @@sequel = Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost')
 
   def self.slugify title
-    slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-    if @@redis.hexists(slug, 'title') == false
-      return slug
-    else
-      self.slugify(title+'1')
-    end
-
+    return title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
-  def self.new post
-    slug = self.slugify(post[:title])
-    @@redis.hmset slug, 'date', post[:date], 'title', post[:title], 'content', post[:content]
-    @@redis.lpush 'post::list', slug
+  def self.striptags tags
+    return tags.downcase.strip.gsub(/[^a-z0-9+,.\-\#\s]+/i,'')
   end
 
-  def self.list paginate: 0, length: 10
-    slugs = @@redis.lrange 'post::list', 0+paginate, 9+paginate
-    posts = []
-    slugs.each do |slug|
-      post = @@redis.hgetall slug
-      post["slug"] = slug
-      posts.push post
+  def self.new title: nil, content: nil, tags: nil, date: DateTime.now
+    if title and content
+      slug = self.slugify(title)
+      if tags
+        tags = self.striptags(tags)
+      end
+      return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :tags => tags, :date => date
     end
-    return posts
+  end
+
+  def self.all paginate: 0, length: 10
+    return @@sequel[:posts].limit(length).offset(paginate).reverse_order(:date).all
   end
 
   def self.find id
-    return @@redis.hgetall id
+    return @@sequel[:posts].where(:id => id).all
   end
 
 end
