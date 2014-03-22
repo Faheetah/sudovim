@@ -1,8 +1,8 @@
 <% @posts.each do |post| %>
 <div class="post">
-  <h3><a href="/<%= post["slug"] %>"><%= post["title"] %></a> <span class="date"><%= post["date"] %></span></h3>
+  <h3><a href="/<%= post[:slug] %>"><%= post[:title] %></a> <span class="date"><%= post[:date] %></span></h3>
   <p>
-    <%= post["content"] %>
+    <%= post[:content] %>
   </p>
 </div>
 <% end %>

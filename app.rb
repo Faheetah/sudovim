@@ -8,7 +8,7 @@ before '/*' do
 end
 
 get '/' do
-  @posts = Post.list paginate: @paginate
+  @posts = Post.all paginate: @paginate
   erb :index
 end
 
