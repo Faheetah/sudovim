@@ -5,7 +5,11 @@ module Post
   @@sequel = Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost')
 
   def self.slugify title
-    slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    return title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
+
+  def self.striptags tags
+
   end
 
   def self.new title: nil, content: nil, tags: nil, date: DateTime.now
