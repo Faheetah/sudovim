@@ -6,17 +6,10 @@ module Post
     return title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
-  def self.striptags tags
-    return tags.downcase.strip.gsub(/[^a-z0-9+,.\-\#\s]+/i,'')
-  end
-
-  def self.new title: nil, content: nil, tags: nil, date: DateTime.now
+  def self.new title: nil, content: nil, date: DateTime.now
     if title and content
       slug = self.slugify(title)
-      if tags
-        tags = self.striptags(tags)
-      end
-      return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :tags => tags, :date => date
+      return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :date => date
     end
   end
 

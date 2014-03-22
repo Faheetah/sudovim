@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'sequel'
 require './Post'
 require './test/sample'
-require 'sequel'
 
 Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost').run "DELETE FROM posts"
 
@@ -16,7 +16,7 @@ describe Post do
 
     it 'creates twenty entries' do
       @data.each do |entry|
-        expect(Post.new title: entry[:title], content: entry[:content], tags: entry[:tags], date: entry[:date]).to be >= 1
+        expect(Post.new title: entry[:title], content: entry[:content], date: entry[:date]).to be >= 1
       end
       expect(Post.all(length:100).length).to be == @data.length
     end
