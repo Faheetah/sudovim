@@ -9,8 +9,8 @@ module Post
   end
 
   def self.new title: nil, content: nil, tags: '', date: DateTime.now
-    slug = self.slugify(title)
     if title and content
+      slug = self.slugify(title)
       return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :tags => tags, :date => date
     end
   end
