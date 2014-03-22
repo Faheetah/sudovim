@@ -2,29 +2,20 @@ require 'sequel'
 
 module Post
 
-  @@sequel = Sequel.connect('postgres://sudovim:sudovim@localhost/sudovim') # Uses the postgres adapter
-
-  def self.all
-    return @@sequel[:posts].count
-  end
+  @@sequel = Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost')
 
   def self.slugify title
     slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-    if @@redis.hexists(slug, 'title') == false
-      return slug
-    else
-      self.slugify(title+'1')
+  end
+
+  def self.new title: nil, content: nil, tags: '', date: DateTime.now
+    slug = self.slugify(title)
+    if title and content
+      return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :tags => tags, :date => date
     end
-
   end
 
-  def self.new post
-    slug = self.slugify(post[:title])
-    @@redis.hmset slug, 'date', post[:date], 'title', post[:title], 'content', post[:content]
-    @@redis.lpush 'post::list', slug
-  end
-
-  def self.list paginate: 0, length: 10
+  def self.all paginate: 0, length: 10
     slugs = @@redis.lrange 'post::list', 0+paginate, 9+paginate
     posts = []
     slugs.each do |slug|
@@ -36,7 +27,7 @@ module Post
   end
 
   def self.find id
-    return @@redis.hgetall id
+    return @@sequel[:posts].where :id => id
   end
 
 end
