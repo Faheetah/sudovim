@@ -21,7 +21,7 @@ module Post
   end
 
   def self.find id
-    return @@sequel[:posts].where(:id => id)
+    return @@sequel[:posts].where(:id => id).all
   end
 
 end
