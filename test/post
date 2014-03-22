@@ -2,31 +2,13 @@
 
 require './Post'
 require './test/sample'
+require 'sequel'
+
+DB = Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost').run "DELETE FROM posts"
 
 describe Post do
   before :all do
-    require 'redis'
-    @redis = Redis.new
-    @redis.flushall
     @data = Sample.load
-    @slug = 'first-post'
-    @postslist = 'post::list'
-  end
-
-
-  describe '#slugify' do
-
-    it 'creates a proper slug' do
-      expect(Post.slugify @data[0][:title]).to eq @slug
-    end
-
-    it 'enumerates duplicates' do
-      @redis.flushall
-      @redis.hset Post.slugify(@data[0][:title]), 'title', @data[0][:title]
-      expect(Post.slugify @data[0][:title]).to eq @slug+'1'
-      @redis.flushall
-    end
-
   end
 
 
@@ -34,9 +16,9 @@ describe Post do
 
     it 'creates twenty entries' do
       @data.each do |entry|
-        expect(Post.new entry).to be >= 1
+        expect(Post.new title: entry[:title], content: entry[:content]).to be >= 1
       end
-      expect(@redis.llen @postslist).to be == @data.length
+      expect(Post.all(length:100).length).to be == @data.length
     end
 
   end
