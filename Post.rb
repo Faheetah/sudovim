@@ -6,10 +6,16 @@ module Post
     return title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
-  def self.new title: nil, content: nil, date: DateTime.now
+  def self.new title: nil, content: nil, tags: nil, date: DateTime.now
     if title and content
       slug = self.slugify(title)
-      return @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :date => date
+      @post = @@sequel[:posts].insert :title => title, :slug => slug, :content => content, :date => date
+      if tags
+        tags.split(',').each do |tag|
+          Tag.new :tag => tag, :posts_id => @post
+        end
+      end
+      return @post
     end
   end
 

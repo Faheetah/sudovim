@@ -8,9 +8,8 @@ module Tag
 
   def self.new tag: nil, posts_id: nil
     if @@sequel[:posts].select(:id).where(:id => posts_id).exists
-      p posts_id
+      return @@sequel[:tags].insert :tag => self.striptags(tag), :posts_id => posts_id
     end
-    return @@sequel[:tags].insert :tag => tag, :posts_id => posts_id
   end
 
   def self.all
