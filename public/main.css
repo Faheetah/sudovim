@@ -52,7 +52,11 @@ body, html {
 
 .menu {
   float:right;
-  padding: 40px;
+  padding: 40px 0 40px 0;
+  min-width: 200px;
+  font-size: 16pt;
+  line-height: 8pt;
+  text-align: right;
 }
 
 a {

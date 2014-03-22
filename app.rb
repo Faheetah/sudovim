@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sequel'
 require './Post'
+require './Tag'
 require './Search'
 
 before '/*' do

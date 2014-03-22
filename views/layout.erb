@@ -22,19 +22,9 @@
 
       <div class="content">
         <div class="menu">
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
-        <p>ASDF</p>
+          <% Tag.all.each do |tag| %>
+            <h4><a href="/tag/<%= tag[:tag] %>"><%= tag[:tag] %></a></h4>
+          <% end %>
         </div>
         <%= yield %>
       </div>
