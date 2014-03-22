@@ -7,6 +7,7 @@ module Search
   end
 
   def self.tags tags
-    return @@sequel[:tags].select(:posts_id).where(:link => tags).distinct.all
+    p tags
+    p @@sequel[:tags].select(:posts_id).where(:link => tags).distinct
   end
 end
