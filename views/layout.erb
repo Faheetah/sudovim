@@ -23,7 +23,7 @@
       <div class="content">
         <div class="menu">
           <% Tag.all.each do |tag| %>
-            <h4><a href="/tag/<%= tag[:tag] %>"><%= tag[:tag] %></a></h4>
+            <h4><a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a></h4>
           <% end %>
         </div>
         <%= yield %>

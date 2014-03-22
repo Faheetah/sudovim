@@ -17,5 +17,6 @@ DB.create_table! :tags do
   primary_key :id
   foreign_key :posts_id, :posts
   String :tag
+  String :link
 end
 
