@@ -13,7 +13,7 @@ module Tag
   end
 
   def self.all
-    @@sequel[:tags].select(:tag, :link).distinct.all
+    return @@sequel[:tags].select(:tag, :link).distinct.all
   end
 
 end
