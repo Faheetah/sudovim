@@ -16,18 +16,12 @@ module Post
   end
 
   def self.all paginate: 0, length: 10
-    slugs = @@redis.lrange 'post::list', 0+paginate, 9+paginate
-    posts = []
-    slugs.each do |slug|
-      post = @@redis.hgetall slug
-      post["slug"] = slug
-      posts.push post
-    end
-    return posts
+    results = @@sequel[:posts]
+    return results.limit(length).offset(paginate).all
   end
 
   def self.find id
-    return @@sequel[:posts].where :id => id
+    return @@sequel[:posts].where(:id => id)
   end
 
 end
