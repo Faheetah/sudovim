@@ -1,8 +1,12 @@
-require 'redis'
+require 'sequel'
 
 module Post
 
-  @@redis = Redis.new
+  @@sequel = Sequel.connect('postgres://sudovim:sudovim@localhost/sudovim') # Uses the postgres adapter
+
+  def self.all
+    return @@sequel[:posts].count
+  end
 
   def self.slugify title
     slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
