@@ -30,11 +30,11 @@ describe Post do
       expect(Post.all.length).to eq 10
     end
 
-    it 'has the first entry date as 1-1-13' do
+    it 'matches the first entry title' do
       expect(Post.all[0][:title]).to eq @data[0][:title]
     end
 
-    it 'has the last entry title as "Title ten"' do
+    it 'matches the last entry title' do
       expect(Post.all[9][:title]).to eq @data[9][:title]
     end
 
@@ -43,22 +43,15 @@ describe Post do
     end
 
     it 'paginates correctly' do
-      expect(Post.all(paginate: 10)[0]['date']).to eq @data[@data.length-11][:date]
-      expect(Post.all(paginate: 10)[0]['title']).to eq @data[@data.length-11][:title]
-      expect(Post.all(paginate: 20)[0]['title']).to eq @data[@data.length-21][:title]
+      expect(Post.all(paginate: 10)[0][:title]).to eq @data[10][:title]
+      expect(Post.all(paginate: 20)[0][:title]).to eq @data[20][:title]
     end
 
   end
 
   describe '#find' do
 
-    it 'gets the values for a single post' do
-      data = @data[15]
-      slug = Post.slugify data[:title]
-      post = Post.find slug.chop
-      expect(post['title']).to eq data[:title]
-      expect(post['content']).to eq data[:content]
-      expect(post['date']).to eq data[:date]
+    it 'isn\'t implemented yet' do
     end
 
   end

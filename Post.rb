@@ -16,7 +16,7 @@ module Post
   end
 
   def self.all paginate: 0, length: 10
-    return @@sequel[:posts].limit(length).offset(paginate).all
+    return @@sequel[:posts].limit(length).offset(paginate).order(:date).all
   end
 
   def self.find id
