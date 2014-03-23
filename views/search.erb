@@ -1,3 +1,9 @@
-<% @results.each do |result| %>
-<p><a href="/<%= result[:id] %>/<%= result[:slug] %>"><%= result[:title] %></a></p>
+<div class="post">
+<h2>Results for <%= @query.join ', ' %></h2>
+<% @results.each do |post| %>
+  <h3><a href="/<%= post[:id] %>/<%= post[:slug] %>"><%= post[:title] %></a> <span class="date"><%= post[:date] %></span></h3>
+  <p>
+    <%= post[:content] %>
+  </p>
 <% end %>
+</div>

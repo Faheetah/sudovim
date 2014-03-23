@@ -20,9 +20,8 @@ get '/search' do
 end
 
 get '/tag/*' do
-p params
-  @query = Search.tags params[:splat].first.split '/'
-  @results = Post.find(@query.flat_map(&:values))
+  @query = params[:splat].first.split '/'
+  @results = Post.find(Search.tags(@query).flat_map(&:values))
   erb :search
 end
 
