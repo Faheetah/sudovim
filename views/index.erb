@@ -8,10 +8,10 @@
 <% end %>
 
 <div class="paginate">
-<% if @paginate > 9 %>
-<a href="/?p=<%= @paginate-10 %>">Prev</a>
-<% end %>
-<% if @posts.length > 9 %>
-<a href="/?p=<%= @paginate+10 %>">Next</a>
-<% end %>
+  <% if @paginate > 9 %>
+    <a href="/?p=<%= @paginate-10 %>">Prev</a>
+  <% end %>
+  <% if @posts.length > 9 %>
+    <a href="/?p=<%= @paginate+10 %>">Next</a>
+  <% end %>
 </div>
