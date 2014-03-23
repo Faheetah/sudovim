@@ -10,6 +10,7 @@ before '/*' do
 end
 
 after '/*' do
+  pass if request.path_info == '/'
   if not @posts
     redirect '/'
   end
