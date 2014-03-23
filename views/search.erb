@@ -1,5 +1,5 @@
 <div class="post">
-<h2>Results for <%= @query.join ', ' %></h2>
+<h4><%= @search.length%> results for <%= @query.join ', ' %></h4>
 <% @results.each do |post| %>
   <h3><a href="/<%= post[:id] %>/<%= post[:slug] %>"><%= post[:title] %></a> <span class="date"><%= post[:date] %></span></h3>
   <p>

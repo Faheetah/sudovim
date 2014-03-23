@@ -22,8 +22,8 @@ end
 get '/tag/*' do
   @query = params[:splat].first.split '/'
   @search = Search.tags(@query).flat_map(&:values)
-  @results = Post.find @search, paginate: @paginate
-  erb :search
+  @posts = Post.find @search, paginate: @paginate
+  erb :index
 end
 
 get '/:id*' do
