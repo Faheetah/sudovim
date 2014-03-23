@@ -20,7 +20,10 @@ module Post
   end
 
   def self.all paginate: 0, length: 10
-    return @@sequel[:posts].limit(length).offset(paginate).reverse_order(:date).all
+    posts = @@sequel[:posts].limit(length).offset(paginate).reverse_order(:date).all.each do |post|
+      post[:tags] = Tag.find post[:id]
+    end
+    return posts
   end
 
   def self.find id, paginate: 0, length: 10
