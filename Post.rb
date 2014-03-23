@@ -23,8 +23,12 @@ module Post
     return @@sequel[:posts].limit(length).offset(paginate).reverse_order(:date).all
   end
 
-  def self.find id
-    return @@sequel[:posts].where(:id => id).all
+  def self.find id, paginate: 0, length: 10
+    if id.is_a? String
+      return @@sequel[:posts].where(:id => id).all
+    elsif id.is_a? Array
+      return @@sequel[:posts].where(:id => id).limit(length).offset(paginate).reverse_order(:date).all
+    end
   end
 
 end
