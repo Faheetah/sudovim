@@ -9,14 +9,20 @@ before '/*' do
   @paginate = params[:p].to_i
 end
 
+after '/*' do
+  if not @posts
+    redirect '/'
+  end
+end
+
 get '/' do
   @posts = Post.all paginate: @paginate
   erb :index
 end
 
 get '/search' do
-  @search = Search.for @query
-  erb :search
+  @posts = Search.find @query
+  erb :index
 end
 
 get '/tag/*' do
