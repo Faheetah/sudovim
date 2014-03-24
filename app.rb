@@ -9,13 +9,6 @@ before '/*' do
   @paginate = params[:p].to_i
 end
 
-#after '/*' do
-#  pass if request.path_info == '/'
-#  if not @posts
-#    redirect '/'
-#  end
-#end
-
 get '/' do
   @posts = Post.all paginate: @paginate
   erb :index
