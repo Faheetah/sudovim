@@ -27,8 +27,8 @@ module Post
   end
 
   def self.find id, paginate: 0, length: 10
-    if id.is_a? String
-      return @@sequel[:posts].where(:id => id).all
+    if id.is_a? Integer
+      return @@sequel[:posts].where(:id => id).first
     elsif id.is_a? Array
       posts = @@sequel[:posts].where(:id => id).limit(length).offset(paginate).reverse_order(:date).all.each do |post|
         post[:tags] = Tag.find post[:id]

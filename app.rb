@@ -27,9 +27,9 @@ get '/tag/*' do
 end
 
 get '/:id*' do
-  @post = Post.find(params[:id])[0]
+  @post = Post.find(params[:id].to_i)
   if @post
-    @post[:tags] = Tag.find params[:id]
+    @post[:tags] = Tag.find params[:id].to_i
     erb :post
   else
     redirect '/'
