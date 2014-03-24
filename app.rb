@@ -28,6 +28,10 @@ end
 
 get '/:id*' do
   @post = Post.find(params[:id])[0]
-  @tags = Tag.find params[:id]
-  erb :post
+  if @post
+    @post[:tags] = Tag.find params[:id]
+    erb :post
+  else
+    redirect '/'
+  end
 end

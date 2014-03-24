@@ -1,8 +1,10 @@
 <div class="post">
-<h2><%= @post[:title] %></h2>
-<h4 class="date">Posted <%= @post[:date] %></h4>
-<p><%= @post[:content] %></p>
-<% @tags.each do |tag| %>
-  <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
-<% end %>
+  <h2><%= @post[:title] %></h2>
+  <h4 class="date">Posted <%= @post[:date] %></h4>
+  <p><%= @post[:content] %></p>
+  <% if @post[:tags] %>
+    <% @post[:tags].each do |tag| %>
+      <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
+    <% end %>
+  <% end %>
 </div>
