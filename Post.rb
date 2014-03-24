@@ -30,10 +30,10 @@ module Post
     if id.is_a? String
       return @@sequel[:posts].where(:id => id).all
     elsif id.is_a? Array
-      post = @@sequel[:posts].where(:id => id).limit(length).offset(paginate).reverse_order(:date).all.each do |post|
+      posts = @@sequel[:posts].where(:id => id).limit(length).offset(paginate).reverse_order(:date).all.each do |post|
         post[:tags] = Tag.find post[:id]
       end
-      return post
+      return posts
     end
   end
 
