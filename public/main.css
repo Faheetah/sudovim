@@ -24,7 +24,18 @@ body, html {
   display: -webkit-box;
   background-color: #111111;
   border-bottom: 16px solid #333333;
-  color: #FFFFFF
+  color: #FFFFFF;
+}
+
+.footer {
+  display: -mox-box;
+  display: -webkit-box;
+  background-color: #FFFFFF;
+  color: #777777;
+  text-align: center;
+  font-size: 10pt;
+  padding: 0;
+
 }
 
 .logo {
@@ -54,8 +65,8 @@ body, html {
   float:right;
   padding: 0 0 20px 20px;
   min-width: 200px;
-  font-size: 16pt;
-  line-height: 8pt;
+  font-size: 14pt;
+  line-height: 4pt;
   text-align: right;
 }
 
@@ -91,7 +102,7 @@ input {
 .paginate {
   text-align: center;
   font-size: 18pt;
-  margin: 40px 0 40px 0;
+  margin: 40px 0 10px 0;
 }
 
 .paginate a {

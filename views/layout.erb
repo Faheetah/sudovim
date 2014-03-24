@@ -24,11 +24,16 @@
 
       <div class="content">
         <div class="menu">
+          <h4>Popular Tags</h4>
           <% Tag.all.each do |tag| %>
             <h4><a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a></h4>
           <% end %>
         </div>
         <%= yield %>
+      </div>
+
+      <div class="footer">
+        <p>Copyright &copy; 2014 Will Normand.</p>
       </div>
     </div>
 
