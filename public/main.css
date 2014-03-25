@@ -96,7 +96,8 @@ input {
 }
 
 .post h3 {
-  font-size: 16pt;
+  font-size: 20pt;
+  margin-bottom: 0;
 }
 
 .paginate {
