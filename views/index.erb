@@ -8,7 +8,7 @@
     <%= post[:content] %>
     <a href="/<%= post[:id] %>/<%= post[:slug] %>">Read More</a>
   </p>
-  <span class="tags">
+  <span>
     <% post[:tags].each do |tag| %>
       <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
     <% end %>

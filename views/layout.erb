@@ -5,31 +5,43 @@
     <meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>SudoVim</title>
     <link rel="stylesheet" type="text/css" media="all" href="/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/layout.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/main.css" />
   </head>
   <body>
 
-    <div class="wrapper">
-      <div class="header">
-        <div class="logo">
-          <a href="/">SudoVim</a>
+      <div id="header" class="flex">
+        <div class="flex container">
+
+          <div id="logo" class="extend">
+            <a href="/">SudoVim</a>
+          </div>
+
+          <div id="search">
+            <form method="get" action="/search">
+              <button type="submit">Search</button>
+              <input type="text" name="q" />
+            </form>
+          </div>
+
         </div>
+      </div>
 
-        <div class="search">
-          <form method="get" action="/search">
-            <label>Search</label> <input type="text" name="q">
-          </form>
+      <div id="menu" class="flex">
+        <div class="container flex">
+          <a href="#">Apples</a><a href="#">Bananas</a><a href="#">Pears</a><a href="#">Cucumbers</a><a href="#">Watermelons</a><a href="#">Carrots</a>
         </div>
       </div>
 
-      <div class="content">
-        <%= yield %>
+      <div id="content" class="flex extend">
+        <div class="container">
+          <%= yield %>
+        </div>
       </div>
 
-      <div class="footer">
-        <p>Copyright &copy; 2014 Will Normand.</p>
+      <div id="footer" class="flex">
+          <p>Copyright &copy; 2014 Will Normand.</p>
       </div>
-    </div>
 
   </body>
 </html>
