@@ -1,18 +1,21 @@
 <div class="post">
+
 <% if @search %>
   <h4><%= @search.length %> results for <%= @query.join(', ').gsub('%23','#') %></h4>
 <% end %>
+
 <% @posts.each do |post| %>
-  <h3><a href="/<%= post[:id] %>/<%= post[:slug] %>"><%= post[:title] %></a> <span class="date"><%= post[:date] %></span></h3>
+  <h3> <a href="/<%= post[:id] %>/<%= post[:slug] %>"><%= post[:title] %></a> </h3>
+  <p class="date">Posted <%= post[:date].strftime("%b %d, %Y") %></p>
   <p>
     <%= post[:content] %>
     <a href="/<%= post[:id] %>/<%= post[:slug] %>">Read More</a>
   </p>
-  <span>
+  <h4 class="tags">
     <% post[:tags].each do |tag| %>
       <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
     <% end %>
-  </span>
+  </h4>
 
 <% end %>
 </div>
