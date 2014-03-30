@@ -20,7 +20,7 @@ module Post
   end
 
   def self.all paginate: 0, length: 10
-    posts = @@sequel[:posts].limit(length).offset(paginate).reverse_order(:date).all.each do |post|
+    posts = @@sequel[:posts].select(:id,:title,:slug,:summary,:date).limit(length).offset(paginate).reverse_order(:date).all.each do |post|
       post[:tags] = Tag.find post[:id]
     end
     return posts
@@ -28,9 +28,9 @@ module Post
 
   def self.find id, paginate: 0, length: 10
     if id.is_a? Integer
-      return @@sequel[:posts].where(:id => id).first
+      return @@sequel[:posts].select(:id,:title,:slug,:content,:date).where(:id => id).first
     elsif id.is_a? Array
-      posts = @@sequel[:posts].where(:id => id).limit(length).offset(paginate).reverse_order(:date).all.each do |post|
+      posts = @@sequel[:posts].select(:id,:title,:slug,:summary,:date).where(:id => id).limit(length).offset(paginate).reverse_order(:date).all.each do |post|
         post[:tags] = Tag.find post[:id]
       end
       return posts
