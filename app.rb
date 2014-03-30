@@ -5,7 +5,6 @@ require './Tag'
 require './Search'
 
 before '/*' do
-  @query = params[:q].split(' ') if params[:q].is_a? String
   @paginate = params[:p].to_i
 end
 
@@ -15,7 +14,9 @@ get '/' do
 end
 
 get '/search' do
-  @posts = Search.find @query, paginate: @paginate
+  @query = params[:q].split(' ') if params[:q].is_a? String
+  @search = Search.find(@query).flat_map(&:values)
+  @posts = Post.find @search, paginate: @paginate
   erb :index
 end
 

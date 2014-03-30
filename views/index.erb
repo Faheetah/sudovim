@@ -22,9 +22,9 @@
 
 <div class="paginate">
   <% if @paginate > 9 %>
-    <a href="?p=<%= @paginate-10 %><%= "&q="+params[:q] if @query %>">Prev</a>
+    <a href="?p=<%= @paginate-10 %><%= "&q="+params[:q] if params[:q] %>">Prev</a>
   <% end %>
   <% if @posts.length > 9 %>
-    <a href="?p=<%= @paginate+10 %><%= "&q="+params[:q] if @query %>">Next</a>
+    <a href="?p=<%= @paginate+10 %><%= "&q="+params[:q] if params[:q] %>">Next</a>
   <% end %>
 </div>
