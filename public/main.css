@@ -7,14 +7,12 @@ body, html {
 }
 
 #menu {
-  background-color: #444444;
   text-align: center;
   padding: 8px;
 }
 
 #menu a {
-  color: #DDDDDD;
-  padding: 8px;
+  padding: 4px;
   font-weight: bold;
 }
 
