@@ -9,6 +9,7 @@ DB.create_table! :posts do
   primary_key :id
   String :title
   String :slug
+  String :summary, :text => true
   String :content, :text => true
   Date :date
 end

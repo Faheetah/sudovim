@@ -19,7 +19,7 @@ describe Post do
 
     it 'creates twenty entries' do
       @data.each do |entry|
-        expect(Post.new title: entry[:title], content: entry[:content], tags: entry[:tags], date: entry[:date]).to be >= 1
+        expect(Post.new title: entry[:title], summary: entry[:summary], content: entry[:content], tags: entry[:tags], date: entry[:date]).to be >= 1
       end
       expect(Post.all(length:100).length).to be == @data.length
     end
