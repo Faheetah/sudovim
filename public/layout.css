@@ -1,0 +1,72 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.extend {
+  display: inline-block;
+}
+
+#header {
+  padding: 10px 0 10px 0;
+}
+
+#search {
+  position: absolute;
+  top: 15px;
+  right: 5%;
+}
+
+#logo {
+  display: inline-block;
+}
+
+@supports (display: flex) {
+  body, html {
+    min-height: 100vh;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #search {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+  #logo {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  #content.container {
+    justify-content: flex-start;
+  }
+
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+  }
+
+  .extend {
+    flex: 1;
+    display: inherit;
+  }
+
+  .container {
+    padding: 0 10px 0 10px;
+    margin: inherit;
+    width: 1024px;
+    align-items: center;
+  }
+}
