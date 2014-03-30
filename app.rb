@@ -15,7 +15,7 @@ get '/' do
 end
 
 get '/search' do
-  @posts = Search.find @query
+  @posts = Search.find @query, paginate: @paginate
   erb :index
 end
 
