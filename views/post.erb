@@ -1,7 +1,7 @@
 <div class="post">
   <h3><%= @post[:title] %></h3>
   <p class="date">Posted <%= @post[:date].strftime("%b %d, %Y") %></p>
-  <p><%= @post[:content] %></p>
+  <%= @markdown.render @post[:content] %>
   <h4 class="tags">
     <% if @post[:tags] %>
       <% @post[:tags].each do |tag| %>

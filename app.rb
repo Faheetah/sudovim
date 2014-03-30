@@ -1,11 +1,13 @@
 require 'sinatra'
 require 'sequel'
+require 'redcarpet'
 require './Post'
 require './Tag'
 require './Search'
 
 before '/*' do
   @paginate = params[:p].to_i
+  @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(fenced_code_blocks: true, no_links: true, hard_wrap: true), extensions = {no_intra_emphasis: true, superscript: true, strikethrough: true, prettify: true})
 end
 
 get '/' do
