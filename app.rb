@@ -40,6 +40,10 @@ get '/about' do
   erb :about
 end
 
+get '/tools' do
+  erb :tools
+end
+
 ## Authentication and new post
 
 get '/new' do
