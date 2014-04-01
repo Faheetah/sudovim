@@ -33,6 +33,10 @@ get '/tag/*' do
   erb :index
 end
 
+get '/about' do
+  erb :about
+end
+
 ## Authentication and new post
 
 get '/new' do

@@ -134,3 +134,10 @@ a:hover {
   margin: 40px;
 }
 
+.about h2 {
+  text-align: center;
+}
+
+code {
+  color: #0077FF;
+}

@@ -1,0 +1,27 @@
+<h1>About</h1>
+
+<div class="about">
+<h2>The Site</h2>
+<p>
+I created this site as a personal technical reference and to improve my writing skills.
+The title is a juxtaposition of the Linux commands <code>sudo</code> and <code>vim</code>.
+I had owned the domain for a few years now and took the opportunity to hone my Ruby skills.
+This site is publically posted should others find the information useful. It is written in Sinatra with Redcarpet for markup,
+and uses Sequel to interface with the Postgres database. Redmine is installed on my home server to track issues for the project.
+Overall, the site is a learning experience, and while it still has some quirks, I am overall pleased with how it turned out.
+</p>
+<p>
+There are some <a href="/tools">tools</a> freely available on the site to use.
+While I reserve the right for the content on the site (the writing of the articles),
+any code (examples or from viewing the site's source) are free for use with no reservation.
+</div>
+
+<div class="about">
+<h2>Whoami</h2>
+<p>
+My name is Will. I work in cloud infrastructure as a support administrator. I have
+<%= (Date.today - Date.parse('2011-8-1')).to_i / 360 %> years
+<%= (Date.today - Date.parse('2011-8-1')).to_i / 30 % 12 %> months experience in the field.
+Not so fun fact: That statistic is dynamically generated with <code>Date::today</code>.
+</p>
+</div>
