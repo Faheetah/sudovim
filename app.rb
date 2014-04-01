@@ -5,13 +5,16 @@ require './Post'
 require './Tag'
 require './Search'
 
-use Rack::Session::Cookie, :key => 'auth', :domain => 'localhost', :path => '/new', :expire_after => 2592000, :secret => '8rj3289rj9foeawhf98o4haf8493oafhaw8ehufizlhfg78oh8'
+use Rack::Session::Cookie, :key => 'auth', :domain => 'localhost', :path => '/new',
+      :expire_after => 2592000, :secret => '8rj3289rj9foeawhf98o4haf8493oafhaw8ehufizlhfg78oh8'
 
 ## General routing
 
 before '/*' do
   @paginate = params[:p].to_i
-  @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(fenced_code_blocks: true, no_links: true, hard_wrap: true), extensions = {no_intra_emphasis: true, superscript: true, strikethrough: true, prettify: true})
+  @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(fenced_code_blocks: true,
+                no_links: true, hard_wrap: true), extensions = {no_intra_emphasis: true,
+                superscript: true, strikethrough: true, prettify: true})
 end
 
 get '/' do
