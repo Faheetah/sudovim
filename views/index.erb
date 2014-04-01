@@ -1,7 +1,7 @@
 <div class="post">
 
 <% if @search %>
-  <h4><%= @search.length %> results for <%= @query.join(', ').gsub('%23','#') %></h4>
+  <h5><%= @search.length %> results for <%= @query.join(', ').gsub('%23','#') %></h5>
 <% end %>
 
 <% @posts.each do |post| %>
