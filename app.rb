@@ -7,6 +7,8 @@ require './Search'
 
 use Rack::Session::Cookie, :key => 'auth', :domain => 'localhost', :path => '/new', :expire_after => 2592000, :secret => '8rj3289rj9foeawhf98o4haf8493oafhaw8ehufizlhfg78oh8'
 
+## General routing
+
 before '/*' do
   @paginate = params[:p].to_i
   @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(fenced_code_blocks: true, no_links: true, hard_wrap: true), extensions = {no_intra_emphasis: true, superscript: true, strikethrough: true, prettify: true})
@@ -30,6 +32,8 @@ get '/tag/*' do
   @posts = Post.find @search, paginate: @paginate
   erb :index
 end
+
+## Authentication and new post
 
 get '/new' do
   if session[:login] == 'true'
@@ -67,6 +71,8 @@ get '/logout' do
   session.clear
   redirect '/new'
 end
+
+## Get ID
 
 get '/:id*' do
   @post = Post.find(params[:id].to_i)
