@@ -1,0 +1,11 @@
+<h1>Tools</h1>
+
+<h2>ip.sudovim.com</h2>
+<p>This will return the public IP that the request originates. This can be handy to not only get your IP, but used in scripts/automation. It is returned directly from Nginx as such:</p>
+<code>server {<br />
+listen 80;<br />
+server_name ip.sudovim.com;<br />
+add_header Content-Type text/plain;<br />
+return 200 $remote_addr;<br />
+}<br />
+</code>
