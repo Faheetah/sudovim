@@ -37,6 +37,7 @@ body, html {
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
+    -webkit-flex-direction: column;
   }
 
   #search {
@@ -47,11 +48,14 @@ body, html {
 
   #logo {
     display: flex;
+    display: -webkit-flex;
     justify-content: flex-start;
+    -webkit-justify-content: flex-start;
   }
 
   #content.container {
     justify-content: flex-start;
+    -webkit-justify-content: flex-start;
   }
 
   .flex {
@@ -64,6 +68,7 @@ body, html {
 
   .extend {
     flex: 1;
+    -webkit-flex: 1;
     display: inherit;
   }
 
