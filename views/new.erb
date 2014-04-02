@@ -26,15 +26,15 @@
 
 <% if params[:preview] %>
 <div class="post">
-  <h3><%= params['subject'] %></h3>
+  <h1><%= params['title'] %></h1>
   <p class="date">Posted <%= DateTime.now.strftime("%b %d, %Y") %></p>
   <%= @markdown.render params['content'] %>
-  <h4 class="tags">
+  <p class="tags">
   <% params['tags'].split(',').each do |tag| %>
     <a><%= tag.strip %></a>
   <% end %>
-  </h4>
-  <h3>Summary</h3>
+  </p>
+  <h1>Summary</h1>
   <%= @markdown.render params['summary'] %>
 </div>
 
@@ -43,7 +43,7 @@
 
   <form method="post" action="/new">
     <label>Title</label>
-    <input type="text" name="title" value="<%= params['subject'] %>" /><br />
+    <input type="text" name="title" value="<%= params['title'] %>" /><br />
     <label>Summary</label>
     <textarea name="summary"><%= params['summary'] %></textarea><br />
     <label>Content</label>
@@ -62,13 +62,13 @@
 
   <form method="post" action="/new">
     <label>Title</label>
-    <input type="text" name="title" value="<%= params['subject'] %>" /><br />
+    <input type="text" name="title" /><br />
     <label>Summary</label>
-    <textarea name="summary"><%= params['summary'] %></textarea><br />
+    <textarea name="summary"></textarea><br />
     <label>Content</label>
-    <textarea name="content"><%= params['content'] %></textarea><br />
+    <textarea name="content"></textarea><br />
     <label>Tags</label>
-    <input type="text" name="tags" value="<%= params['tags'] %>" /><br />
+    <input type="text" name="tags" /><br />
     <button type="submit" name="submit" value="publish">Publish</button>
     <button type="submit" name="preview" value="preview">Preview</button>
   </form>

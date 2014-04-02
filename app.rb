@@ -12,9 +12,9 @@ use Rack::Session::Cookie, :key => 'auth', :domain => 'localhost', :path => '/ne
 
 before '/*' do
   @paginate = params[:p].to_i
-  @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(fenced_code_blocks: true,
-                no_links: true, hard_wrap: true), extensions = {no_intra_emphasis: true,
-                superscript: true, strikethrough: true, prettify: true})
+  @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(no_links: true, hard_wrap: true, prettify: true),
+                extensions = {fenced_code_blocks: true, no_intra_emphasis: true,
+                superscript: true, strikethrough: true})
 end
 
 get '/' do

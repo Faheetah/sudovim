@@ -5,17 +5,15 @@
 <% end %>
 
 <% @posts.each do |post| %>
-  <h3> <a href="/<%= post[:id] %>/<%= post[:slug] %>"><%= post[:title] %></a> </h3>
+  <h1> <a href="/<%= post[:id] %>/<%= post[:slug] %>"><%= post[:title] %></a> </h1>
   <p class="date">Posted <%= post[:date].strftime("%b %d, %Y") %></p>
-  <p>
-    <%= post[:summary] %>
-    <a href="/<%= post[:id] %>/<%= post[:slug] %>">Read More</a>
-  </p>
-  <h4 class="tags">
+    <%= @markdown.render post[:summary] %>
+    <p><a href="/<%= post[:id] %>/<%= post[:slug] %>">Read More</a></p>
+  <p class="tags">
     <% post[:tags].each do |tag| %>
       <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
     <% end %>
-  </h4>
+  </p>
 
 <% end %>
 </div>

@@ -1,12 +1,12 @@
 <div class="post">
-  <h3><%= @post[:title] %></h3>
+  <h1><%= @post[:title] %></h1>
   <p class="date">Posted <%= @post[:date].strftime("%b %d, %Y") %></p>
   <%= @markdown.render @post[:content] %>
-  <h4 class="tags">
+  <p class="tags">
     <% if @post[:tags] %>
       <% @post[:tags].each do |tag| %>
         <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
       <% end %>
     <% end %>
-  </h4>
+  </p>
 </div>
