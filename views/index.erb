@@ -1,22 +1,20 @@
-<div class="post">
-
 <% if @search %>
-  <h5><%= @search.length %> results for <%= @query.join(', ').gsub('%23','#') %></h5>
+  <div class="search"><%= @search.length %> results for <%= @query.join(', ').gsub('%23','#') %></div>
 <% end %>
 
 <% @posts.each do |post| %>
+<div class="post">
   <h1> <a href="/<%= post[:id] %>/<%= post[:slug] %>"><%= post[:title] %></a> </h1>
   <p class="date">Posted <%= post[:date].strftime("%b %d, %Y") %></p>
     <%= @markdown.render post[:summary] %>
-    <p><a href="/<%= post[:id] %>/<%= post[:slug] %>">Read More</a></p>
   <p class="tags">
     <% post[:tags].each do |tag| %>
-      <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
+      <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %>,</a>
     <% end %>
   </p>
 
-<% end %>
 </div>
+<% end %>
 
 <div class="paginate">
   <% if @paginate > 9 %>
