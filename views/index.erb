@@ -8,8 +8,8 @@
   <p class="date">Posted <%= post[:date].strftime("%b %d, %Y") %></p>
     <%= @markdown.render post[:summary] %>
   <p class="tags">
-    <% post[:tags].each do |tag| %>
-      <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %>,</a>
+    <% post[:tags].each_with_index do |tag,index| %>
+      <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %><% if post[:tags].length-1 != index %>,<% end %></a>
     <% end %>
   </p>
 

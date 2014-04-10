@@ -4,8 +4,8 @@
   <%= @markdown.render @post[:content] %>
   <p class="tags">
     <% if @post[:tags] %>
-      <% @post[:tags].each do |tag| %>
-        <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %></a>
+      <% @post[:tags].each_with_index do |tag,index| %>
+        <a href="/tag/<%= tag[:link] %>"><%= tag[:tag] %><% if @post[:tags].length-1 != index %>,<% end %></a>
       <% end %>
     <% end %>
   </p>
