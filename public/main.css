@@ -13,6 +13,12 @@ a:hover {
 }
 
 
+pre {
+  background-color: #F9F9F9;
+  border: 1px dashed #CCCCCC;
+  padding: 8px;
+}
+
 
 #header, #menu {
   background-color: #222222;

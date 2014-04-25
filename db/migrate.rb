@@ -2,8 +2,8 @@ require 'sequel'
 
 DB = Sequel.postgres('sudovim', :user => 'sudovim', :password => 'sudovim', :host => 'localhost')
 
-DB.run 'drop table tags'
-DB.run 'drop table posts'
+#DB.run 'drop table tags'
+#DB.run 'drop table posts'
 
 DB.create_table! :posts do
   primary_key :id

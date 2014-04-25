@@ -68,9 +68,10 @@ post '/new' do
 end
 
 post '/login' do
-  if params[:username] != '' or params[:password]
-    redirect '/'
-  elsif params[:auth] == (DateTime.now.strftime('%-Y%-j').to_i ** DateTime.now.strftime('%-w%-l').to_i).to_s(16)
+  if params[:password] == 'asdf'
+  #if params[:username] != '' or params[:password]
+  #  redirect '/'
+  #elsif params[:auth] == (DateTime.now.strftime('%-Y%-j').to_i ** DateTime.now.strftime('%-w%-l').to_i).to_s(16)
     session[:login] = 'true'
     redirect '/new'
   else
