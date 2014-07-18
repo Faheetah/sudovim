@@ -1,7 +1,32 @@
 body, html {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
   font-family: 'Open Sans', Arial, sans-serif;
   color: #333333;
 }
+
+.container {
+  width: 90%;
+  max-width: 980px;
+  margin: auto;
+}
+
+#header {
+  padding: 10px 0 10px 0;
+  overflow: hidden;
+}
+
+#logo, #links, #search {
+  display: inline-block;
+  line-height: 27pt;
+}
+
+#search {
+  float: right;
+  min-width: 300px;
+}
+
 
 a {
   color: #3377FF;
@@ -11,7 +36,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
 
 pre {
   background-color: #F9F9F9;
@@ -75,7 +99,7 @@ pre {
 
 
 .post {
-  padding: 20px 0 20px 0;
+  padding: 0px 0 20px 0;
   border-bottom: 1px solid #DDDDDD;
 }
 
@@ -102,8 +126,9 @@ pre {
 
 .search {
   padding-top: 20px;
-  color: #333333;
-  font-size: 20pt;
+  padding-bottom: 0;
+  color: #777777;
+  font-size: 14pt;
   text-align: center;
   font-weight: 100;
 }
