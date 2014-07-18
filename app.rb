@@ -68,7 +68,6 @@ post '/new' do
 end
 
 post '/login' do
-p params
   if params[:username] == 'main' && params[:password] == 'w7e9f8j'
     session[:login] = 'true'
     redirect '/new'
