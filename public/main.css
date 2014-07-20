@@ -64,26 +64,25 @@ pre {
 
 #search input {
   height: 26px;
-  width: 300px;
-  color: #555555;
-  padding: 3px;
-  border-radius: 0;
-  border: 1px solid #333333;
+  color: #cccccc;
+  padding: 3px 10px 3px 10px;
+  border-radius: 20px;
+  border: 0;
   vertical-align: middle;
-  background-color: #FFFFFF;
+  background-color: #555555;
   font-size: 14pt;
 }
 
 #search button {
-  margin-right: 10px;
+  width: 26px;
   vertical-align: middle;
-  font-size: 16pt;
-  height: 38px;
+  height: 26px;
   display: inline-block;
   border: 0;
   border-radius: 0;
   color: #999999;
   background-color: transparent;
+  background: url(/search.png) no-repeat;
 }
 
 #search button:hover {
